@@ -13,7 +13,8 @@ class Question(models.Model):
 		return self.question_text
 
 	def was_published_in_last_7_days(self):
-		return self.pub_date >= timezone.now() - datetime.timedelta(days=7)
+		now = timezone.now()
+		return timezone.now() - datetime.timedelta(days=7) <= self.pub_date <= now
 
 	was_published_in_last_7_days.admin_order_field = 'pub_date'
 	was_published_in_last_7_days.boolean = True
