@@ -4,7 +4,8 @@ from django.views import generic
 
 from .models import Question, Choice
 
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
+from django.core.urlresolvers import reverse 
 from django.utils import timezone
 
 class IndexView(generic.ListView):
